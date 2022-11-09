@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 11:03:16 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/09 10:55:53 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/09 16:12:22 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memchr(const void *p, int c, size_t len)
 	while (i < len)
 	{
 		if (((unsigned char *)p)[i] == (unsigned char)c)
-			return (p + i);
+			return (&((unsigned char *)p)[i]);
 		i++;
 	}
 	return (0);

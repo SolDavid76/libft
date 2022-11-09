@@ -6,13 +6,13 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 14:22:10 by djanusz           #+#    #+#             */
-/*   Updated: 2022/09/14 14:27:45 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/09 17:44:46 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	toupper(int c)
+int	ft_toupper(int c)
 {
 	if ('a' <= (char)c && (char)c <= 'z')
 		return (c - 32);

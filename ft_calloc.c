@@ -6,7 +6,7 @@
 /*   By: djanusz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 10:50:05 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/09 11:12:19 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/09 17:41:09 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_calloc(size_t n, size_t size)
 {
-	int		i;
-	void	*res;
+	size_t		i;
+	void		*res;
 
 	res = malloc(n * size);
 	if (!res)
@@ -23,7 +23,7 @@ void	*ft_calloc(size_t n, size_t size)
 	i = 0;
 	while (i < n)
 	{
-		res[i] = NULL;
+		((unsigned char *)res)[i] = 0;
 		i++;
 	}
 	return (res);
