@@ -6,13 +6,13 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 14:13:39 by djanusz           #+#    #+#             */
-/*   Updated: 2022/09/14 14:18:42 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/09 10:52:26 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isprint(int c)
+int	ft_isprint(int c)
 {
 	if (32 <= (char)c && (char)c <= 126)
 		return (1);

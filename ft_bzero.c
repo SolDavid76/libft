@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 18:50:07 by djanusz           #+#    #+#             */
-/*   Updated: 2022/09/11 20:00:40 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/09 11:10:40 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_bzero(void *p, size_t len)
 {
-	size_t  i;
+	size_t	i;
 
 	i = 0;
 	while (i < len)
@@ -22,5 +22,4 @@ void	ft_bzero(void *p, size_t len)
 		((unsigned char *)p)[i] = '\0';
 		i++;
 	}
-	return (p);
 }

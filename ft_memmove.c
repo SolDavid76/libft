@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 21:47:24 by djanusz           #+#    #+#             */
-/*   Updated: 2022/09/14 11:01:45 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/09 10:51:59 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t i;
+	size_t	i;
 
 	if (!src && !dst)
 		return (0);
@@ -24,7 +24,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	{
 		while (len--)
 			((unsigned char *)dst)[len] = ((unsigned char *)src)[len];
-		return (dst)
+		return (dst);
 	}
 	i = 0;
 	while (len--)

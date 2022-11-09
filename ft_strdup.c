@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 11:30:51 by djanusz           #+#    #+#             */
-/*   Updated: 2022/09/14 11:41:20 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/09 10:56:44 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*strdup(const char *str)
 {
-	int 	i;
+	int		i;
 	char	*res;
 
 	res = malloc(sizeof(char) * (ft_strlen(str) + 1));

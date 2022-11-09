@@ -6,11 +6,11 @@
 /*   By: djanusz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 11:39:01 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/08 11:48:02 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/09 11:03:12 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "linft.h"
+#include "libft.h"
 
 char	*ft_strrchr(const char *str, int c)
 {
@@ -20,10 +20,10 @@ char	*ft_strrchr(const char *str, int c)
 
 	i = 0;
 	len = ft_strlen(str);
-	while(i != 0)
+	while (i != 0)
 	{
 		i--;
-		if(str[i] ==(unsigned char)c)
+		if (str[i] == (unsigned char)c)
 			return (&str[i]);
 	}
 	return (NULL);
