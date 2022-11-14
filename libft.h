@@ -6,7 +6,7 @@
 /*   By: djanusz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:33:50 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/09 16:44:49 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/14 11:49:46 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
 int		ft_strncmp(char *x, char *y, unsigned int n);
 char	*ft_strnstr(const char *s1, const char *s2, size_t len);
-char	ft_strdup(const char *str);
+char	*ft_strdup(const char *str);
+char	*ft_substr(const char *str, unsigned int start, size_t len);
+char	*ft_strjoin(const char *s1, const char *s2);
 
 /* mem */
 void	*ft_memset(void *p, int c, size_t len);
