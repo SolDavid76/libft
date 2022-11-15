@@ -6,7 +6,7 @@
 /*   By: djanusz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:33:50 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/14 16:45:31 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/15 15:34:20 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,12 @@ void	*ft_calloc(size_t n, size_t size);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_atoi(const char *str);
+char	*ft_itoa(int x);
+
+/* fd */
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *str, int fd);
+void	ft_putendl_fd(char *str, int fd);
+void	ft_putnbr_fd(int x, int fd);
 
 #endif
