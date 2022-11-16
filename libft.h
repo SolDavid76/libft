@@ -6,7 +6,7 @@
 /*   By: djanusz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:33:50 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/15 15:34:20 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/16 12:26:18 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ char	*ft_strdup(const char *str);
 char	*ft_substr(const char *str, unsigned int start, size_t len);
 char	*ft_strjoin(const char *s1, const char *s2);
 char	**ft_split(const char *str, char c);
+char	*ft_strmapi(char const *str, char (*f)(unsigned int, char));
+void	ft_striteri(char *str, void (*f)(unsigned int, char *));
 
 /* mem */
 void	*ft_memset(void *p, int c, size_t len);
