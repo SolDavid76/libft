@@ -23,6 +23,7 @@ SRCS =	ft_atoi.c \
 		ft_strncmp.c \
 		ft_substr.c \
 		ft_strjoin.c \
+		ft_strtrim.c \
 		ft_split.c \
 		ft_itoa.c \
 		ft_strmapi.c \
@@ -42,7 +43,7 @@ SRCSBONUS =	ft_lstnew.c \
 			ft_lstdelone.c \
 			ft_lstclear.c \
 			ft_lstiter.c \
-			ft_lstmap.c
+			ft_lstmap.c \
 
 OBJSBONUS	= ${SRCSBONUS:.c=.o}
 

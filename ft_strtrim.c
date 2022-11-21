@@ -6,13 +6,13 @@
 /*   By: djanusz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 13:43:15 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/16 18:01:09 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/17 13:53:44 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_checkstart(char *str, char *set)
+static int	ft_checkstart(const char *str, const char *set)
 {
 	int	i;
 	int	j;
@@ -40,7 +40,7 @@ static int	ft_checkstart(char *str, char *set)
 	return (res);
 }
 
-static int	ft_checkend(char *str, char *set)
+static int	ft_checkend(const char *str, const char *set)
 {
 	int	i;
 	int	j;
@@ -59,16 +59,16 @@ static int	ft_checkend(char *str, char *set)
 			if (str[i] == set[j])
 			{
 				res++;
+				i--;
 				x = 1;
 			}
 			j++;
 		}
-		i--;
 	}
-	return (res);
+	return (i);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *str, char const *set)
 {
 	int		start;
 	int		end;
@@ -77,8 +77,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		index;
 
 	start = ft_checkstart(str, set);
-	end = ft_checkend(str, end);
-	res = malloc(sizeof(char) * (ft_strlen(str) + 1) - (start + end));
+	end = ft_checkend(str, set) + 1;
+	res = malloc(sizeof(char) * (end - start) + 1);
 	if (!res)
 		return (NULL);
 	i = start;
@@ -89,5 +89,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 		index++;
 		i++;
 	}
-	return (res)
+	res[index] = '\0';
+	return (res);
 }

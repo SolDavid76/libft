@@ -6,7 +6,7 @@
 /*   By: djanusz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:33:50 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/16 12:26:18 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/21 09:58:47 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stddef.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
 
 /* is */
 int		ft_isalpha(int c);
@@ -34,6 +40,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len);
 char	*ft_strdup(const char *str);
 char	*ft_substr(const char *str, unsigned int start, size_t len);
 char	*ft_strjoin(const char *s1, const char *s2);
+char	*ft_strtrim(char const *str, char const *set);
 char	**ft_split(const char *str, char c);
 char	*ft_strmapi(char const *str, char (*f)(unsigned int, char));
 void	ft_striteri(char *str, void (*f)(unsigned int, char *));
@@ -58,5 +65,16 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *str, int fd);
 void	ft_putendl_fd(char *str, int fd);
 void	ft_putnbr_fd(int x, int fd);
+
+/* list */
+t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif

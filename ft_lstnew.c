@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djanusz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 09:42:15 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/21 11:42:43 by djanusz          ###   ########.fr       */
+/*   Created: 2022/11/17 14:50:44 by djanusz           #+#    #+#             */
+/*   Updated: 2022/11/17 15:29:23 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t len)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	i;
-	size_t	j;
-	size_t	s2len;
+	t_list	*res;
 
-	if (s2 == NULL || s2[0] == '\0')
-		return ((char *)s1);
-	i = 0;
-	s2len = ft_strlen(s2) - 1;
-	while (s1[i] != '\0' && i < len)
-	{
-		j = 0;
-		while (s1[i] == s2[j] && i < len)
-		{
-			if (j == s2len)
-				return ((char *)s1 + (i - j));
-			i++;
-			j++;
-		}
-		i++;
-	}
-	return (NULL);
+	res = malloc(sizeof(t_list));
+	if (!res)
+		return (NULL);
+	res->content = content;
+	res->next = NULL;
+	return (res);
 }
