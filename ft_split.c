@@ -6,13 +6,13 @@
 /*   By: djanusz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 12:00:59 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/21 12:21:13 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/22 15:42:12 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	wordcount(const char *str, char c)
+static size_t	wordcount(const char *str, char c)
 {
 	size_t	i;
 	size_t	res;
@@ -28,7 +28,7 @@ size_t	wordcount(const char *str, char c)
 	return (res);
 }
 
-void	freeall(char **str)
+static void	freeall(char **str)
 {
 	size_t	i;
 
@@ -41,7 +41,7 @@ void	freeall(char **str)
 	free(str);
 }
 
-char	**mallocall(const char *str, char c)
+static char	**mallocall(const char *str, char c)
 {
 	int		i;
 	int		len;
@@ -91,10 +91,11 @@ char	**ft_split(const char *str, char c)
 			index++;
 			i++;
 			j = 0;
+		}else{
+			res[i][j] = str[index];
+			index++;
+			j++;
 		}
-		res[i][j] = str[index];
-		index++;
-		j++;
 	}
 	res[i][j] = '\0';
 	res[i + 1] = NULL;

@@ -6,7 +6,7 @@
 /*   By: djanusz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:33:50 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/21 09:58:47 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/22 13:56:56 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ int		ft_isprint(int c);
 
 /* str */
 size_t	ft_strlen(const char *str);
-size_t	ft_strlcpy(char *dest, char *src, unsigned int size);
-size_t	ft_strlcat(char *dest, char *src, unsigned int size);
+size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+size_t	ft_strlcat(char *dest, const char *src, size_t size);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
-int		ft_strncmp(char *x, char *y, unsigned int n);
+int		ft_strncmp(const char *x, const char *y, size_t n);
 char	*ft_strnstr(const char *s1, const char *s2, size_t len);
 char	*ft_strdup(const char *str);
 char	*ft_substr(const char *str, unsigned int start, size_t len);

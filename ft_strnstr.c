@@ -6,7 +6,7 @@
 /*   By: djanusz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 09:42:15 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/21 11:42:43 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/22 13:42:23 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,17 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 {
 	size_t	i;
 	size_t	j;
-	size_t	s2len;
 
 	if (s2 == NULL || s2[0] == '\0')
 		return ((char *)s1);
 	i = 0;
-	s2len = ft_strlen(s2) - 1;
-	while (s1[i] != '\0' && i < len)
+	while (s1[i] != '\0')
 	{
 		j = 0;
-		while (s1[i] == s2[j] && i < len)
-		{
-			if (j == s2len)
-				return ((char *)s1 + (i - j));
-			i++;
+		while (s1[i + j] && s2[j] && i + j < len && s1[i + j] == s2[j])
 			j++;
-		}
+		if (s2[j] == '\0')
+			return ((char *)s1 + i);
 		i++;
 	}
 	return (NULL);

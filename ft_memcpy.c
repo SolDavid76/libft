@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 15:32:39 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/09 10:48:30 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/22 12:19:38 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t len)
 {
 	size_t	i;
 
-	if (!dst || !src)
+	if (!dst && !src)
 		return (0);
 	i = 0;
 	while (i < len)

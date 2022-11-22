@@ -6,13 +6,15 @@
 /*   By: djanusz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 11:54:17 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/14 11:51:51 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/22 13:50:36 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *x, char *y, unsigned int n)
+#include "libft.h"
+
+int	ft_strncmp(const char *x, const char *y, size_t n)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
 	if (n == 0)

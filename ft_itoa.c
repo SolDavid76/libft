@@ -6,13 +6,13 @@
 /*   By: djanusz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 09:33:07 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/15 14:36:49 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/22 15:42:36 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	intlen(long int x)
+static size_t	intlen(long int x)
 {
 	size_t	res;
 
