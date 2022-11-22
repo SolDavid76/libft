@@ -6,98 +6,80 @@
 /*   By: djanusz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 12:00:59 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/22 15:42:12 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/22 18:50:03 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	wordcount(const char *str, char c)
+int    nbr_word(char const *str, char c)
 {
-	size_t	i;
-	size_t	res;
+    size_t    i;
+    size_t    len;
 
-	i = 0;
-	res = 1;
-	while (str[i] != '\0')
-	{
-		if (str[i] == c)
-			res++;
-		i++;
-	}
-	return (res);
+    i = 0;
+    len = 0;
+    while (str[i])
+    {
+        if (str[i] == c && i != 0 && str[i - 1] != c)
+            len++;
+        i++;
+    }
+    if (i != 0 && str[i - 1] != c)
+        len++;
+    return (len);
 }
 
-static void	freeall(char **str)
+static char    *ft_strdup_split(const char *str, char c)
 {
-	size_t	i;
+    int            i;
+    int            v;
+    char        *extracted;
 
-	i = 0;
-	while (str[i] != NULL)
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
+    i = 0;
+    v = 0;
+    while (str[i] && str[i] != c)
+        i++;
+    extracted = (char *)malloc((i + 1) * sizeof (char));
+    i = 0;
+    if (!extracted)
+        return (0);
+    while (str[i] == c && str[i])
+        i++;
+    while (str[i] != c && str[i])
+    {
+        extracted[v] = str[i];
+        i++;
+        v++;
+    }
+    extracted[v] = '\0';
+    return (extracted);
 }
 
-static char	**mallocall(const char *str, char c)
+char    **ft_split(char const *s, char c)
 {
-	int		i;
-	int		len;
-	int		j;
-	int		index;
-	char	**res;
+    size_t    i;
+    size_t    j;
+    char    **split_tab;
 
-	res = malloc(sizeof(char *) * (wordcount(str, c) + 1));
-	if (!res)
-		return (NULL);
-	i = 0;
-	len = ft_strlen(str);
-	j = 0;
-	index = 0;
-	while (i <= len)
-	{
-		if (str[i] == c || str[i] == '\0')
-		{
-			res[index] = malloc(sizeof(char) * (i - j + 1));
-			if (!res)
-				freeall(res);
-			index++;
-			i++;
-			j = i;
-		}
-		i++;
-	}
-	return (res);
-}
-
-char	**ft_split(const char *str, char c)
-{
-	char	**res;
-	int		index;
-	int		i;
-	int		j;
-
-	res = mallocall(str, c);
-	index = 0;
-	i = 0;
-	j = 0;
-	while (str[index])
-	{
-		if (str[index] == c)
-		{
-			res[i][j] = '\0';
-			index++;
-			i++;
-			j = 0;
-		}else{
-			res[i][j] = str[index];
-			index++;
-			j++;
-		}
-	}
-	res[i][j] = '\0';
-	res[i + 1] = NULL;
-	return (res);
+    i = 0;
+    j = 0;
+    split_tab = (char **)malloc((nbr_word((char *)s , c) + 1)  * sizeof(char *));
+    if (!split_tab)
+        return (NULL);
+    while (s[i] && s[i] == c)
+        i++;
+    while (s[i])
+    {
+        split_tab[j] = ft_strdup_split(&s[i], c);
+        if (!split_tab[j])
+            return (NULL);
+        while (s[i] != c && s[i])
+            i++;
+        while (s[i] && s[i] == c)
+            i++;
+        j++;
+    }
+    split_tab[nbr_word((char *)s, c)] = 0;
+    return (split_tab);
 }
