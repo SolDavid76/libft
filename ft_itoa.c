@@ -6,7 +6,7 @@
 /*   By: djanusz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 09:33:07 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/22 15:42:36 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/23 16:44:19 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,30 +30,38 @@ static size_t	intlen(long int x)
 	return (res);
 }
 
+static char	*itoa_aux(char *res, long int nb, int len, int start)
+{
+	while (len >= start)
+	{
+		res[len] = ((nb % 10) + 48);
+		nb /= 10;
+		len--;
+	}
+	return (res);
+}
+
 char	*ft_itoa(int x)
 {
-	int			i;
 	char		*res;
+	int			len;
+	int			start;
 	long int	nb;
 
 	nb = x;
-	i = intlen((long int)x);
-	res = malloc(sizeof(char) * (i + 1));
-	res[i] = '\0';
+	len = intlen((long int)nb);
+	res = malloc(sizeof(char) * (len + 1));
 	if (!res)
 		return (NULL);
+	res[len] = '\0';
+	len--;
 	if (x < 0)
 	{
 		nb = -(long int)x;
 		res[0] = '-';
+		start = 1;
 	}
-	while (i > 0)
-	{
-		i--;
-		if (res[i] == '-')
-			return (res);
-		res[i] = ((nb % 10) + 48);
-		nb /= 10;
-	}
-	return (res);
+	else
+		start = 0;
+	return (itoa_aux(res, nb, len, start));
 }
