@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 13:54:22 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/09 10:51:14 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/24 09:55:54 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_isalpha(int c)
 {
-	if (('a' <= (char)c && (char)c <= 'z')
-		|| ('A' <= (char)c && (char)c <= 'Z'))
+	if (('a' <= c && c <= 'z')
+		|| ('A' <= c && c <= 'Z'))
 		return (1);
 	else
 		return (0);

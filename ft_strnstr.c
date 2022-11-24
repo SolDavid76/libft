@@ -6,7 +6,7 @@
 /*   By: djanusz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 09:42:15 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/22 13:42:23 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/24 10:20:37 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 	size_t	i;
 	size_t	j;
 
-	if (s2 == NULL || s2[0] == '\0')
+	if (s2[0] == '\0')
 		return ((char *)s1);
+	if (!len)
+		return (0);
 	i = 0;
 	while (s1[i] != '\0')
 	{

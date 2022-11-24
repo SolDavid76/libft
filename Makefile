@@ -49,7 +49,7 @@ OBJSBONUS	= ${SRCSBONUS:.c=.o}
 
 
 NAME = libft.a
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
@@ -72,5 +72,9 @@ fclean: clean
 			${RM} ${NAME}
 
 re: fclean all
+
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 .PHONY:		bonus all clean fclean re
