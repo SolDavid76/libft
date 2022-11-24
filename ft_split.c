@@ -6,13 +6,27 @@
 /*   By: djanusz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 12:00:59 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/23 15:52:12 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/24 11:57:20 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	nbr_word(char const *str, char c)
+static void	*freeall(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
+	return (NULL);
+}
+
+static int	nbr_word(char const *str, char c)
 {
 	size_t	i;
 	size_t	len;
@@ -40,7 +54,7 @@ static char	*ft_strdup_split(const char *str, char c)
 	v = 0;
 	while (str[i] && str[i] != c)
 		i++;
-	extracted = (char *)malloc((i + 1) * sizeof (char));
+	extracted = malloc((i + 1) * sizeof (char));
 	i = 0;
 	if (!extracted)
 		return (0);
@@ -73,7 +87,7 @@ char	**ft_split(char const *s, char c)
 	{
 		split_tab[j] = ft_strdup_split(&s[i], c);
 		if (!split_tab[j])
-			return (NULL);
+			return (freeall(split_tab));
 		while (s[i] != c && s[i])
 			i++;
 		while (s[i] && s[i] == c)

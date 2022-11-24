@@ -6,7 +6,7 @@
 /*   By: djanusz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 09:37:02 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/22 18:53:02 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/24 12:02:37 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 	(void)del;
 	res = ft_lstnew(f(lst->content));
+	if (!res)
+		return (null);
 	lst = lst->next;
 	while (lst)
 	{
