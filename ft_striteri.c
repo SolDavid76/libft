@@ -6,7 +6,7 @@
 /*   By: djanusz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 12:21:21 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/16 12:27:02 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/24 15:06:54 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@ void	ft_striteri(char *str, void (*f)(unsigned int, char *))
 {
 	int	i;
 
+	if (!f || !str)
+		return ;
 	i = 0;
 	while (str[i] != '\0')
 	{

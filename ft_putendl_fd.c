@@ -6,7 +6,7 @@
 /*   By: djanusz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 14:54:37 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/15 15:37:15 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/24 15:09:20 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putendl_fd(char *str, int fd)
 	int	i;
 
 	i = 0;
+	if (!str)
+		return ;
 	while (str[i] != '\0')
 	{
 		write(fd, &str[i], 1);

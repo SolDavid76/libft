@@ -6,11 +6,23 @@
 /*   By: djanusz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 11:15:38 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/14 11:43:12 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/25 10:41:15 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char	*ft_protego(const char *s1, const char *s2)
+{
+	char	*res;
+
+	if (!s1 || !s2)
+		return (NULL);
+	res = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!res)
+		return (NULL);
+	return (res);
+}
 
 char	*ft_strjoin(const char *s1, const char *s2)
 {
@@ -18,7 +30,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	size_t	i;
 	size_t	j;
 
-	res = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	res = ft_protego(s1, s2);
 	if (!res)
 		return (NULL);
 	i = 0;
