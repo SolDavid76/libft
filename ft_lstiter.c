@@ -6,7 +6,7 @@
 /*   By: djanusz <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 09:26:40 by djanusz           #+#    #+#             */
-/*   Updated: 2022/11/21 09:56:48 by djanusz          ###   ########.fr       */
+/*   Updated: 2022/11/25 14:29:16 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (lst)
-	{
-		f(lst->content);
-		ft_lstiter(lst->next, f);
-	}
+	if (!lst || !f)
+		return ;
+	f(lst->content);
+	ft_lstiter(lst->next, f);
 }
